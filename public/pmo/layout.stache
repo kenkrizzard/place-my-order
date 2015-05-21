@@ -8,15 +8,29 @@
     <can-import from="pmo/routes" />
     <can-import from="less/styles.less!" />
     <can-import from="pmo/appstate" as="viewModel" />
-
-    <can-import from="pmo/header/" />
     <can-import from="pmo/loading/" />
-    <pmo-header page="{page}"></pmo-header>
+    <can-import from="can/view/href/href"/>
+
+    <header>
+      <nav>
+        <h1>PlaceMyOrder.com</h1>
+        <ul>
+          <li class="{{#eq page 'home'}}active{{/eq}}">
+            <a can-href='{page="home"}'>Home</a>
+          </li>
+          <li class="{{#eq page 'restaurants'}}active{{/eq}}">
+            <a can-href='{page="restaurants"}'>Restaurants</a>
+          </li>
+          <li class="{{#eq page 'orders'}}active{{/eq}}">
+            <a can-href='{page="orders"}'>Order History</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
     {{#eq page "home"}}
-      <can-import from="pmo/home/home" can-tag="pmo-loading">
-        <pmo-home></pmo-home>
-      </can-import>
+      <can-import from="pmo/home.stache!" [homeTemplate]="{value}" />
+      {{> homeTemplate}}
     {{/eq}}
 
     {{#eq page "restaurants"}}
