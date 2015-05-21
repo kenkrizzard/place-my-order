@@ -1,0 +1,12 @@
+{
+  "sites": {
+    "docs": {
+      "dest": "./docs",
+      "parent": "index",
+      "glob": {
+        "pattern": "**/*.{js,md}",
+        "ignore": [ "**/node_modules/**/*" ]
+      }
+    }
+  }
+}

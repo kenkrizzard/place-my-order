@@ -5,7 +5,14 @@ import template from './order.stache!';
 import Restaurant from 'pmo/models/restaurant';
 import Order from 'pmo/models/order';
 
+/**
+ * @parent pmo-order
+ * @module pmo/order/ViewModel ViewModel
+ *
+ * The view model for the `pmo-order` component.
+ */
 export const ViewModel = Map.extend({
+  /** @prototype */
   define: {
     /**
      * @property {String} slug
@@ -37,16 +44,11 @@ export const ViewModel = Map.extend({
     /**
      * @property {can.Deferred} restaurant
      *
-     * The restaurant instance as a Deferred.
+     * The restaurant instance as a Deferred. Will be a
+     * Deferred that gets a restaurant based on the `slug`
+     * set in this component and sets the orders restaurant id.
      */
     restaurant: {
-      /**
-       * Returns a Deferred that gets a restaurant based on the `slug`
-       * set in this component and sets the orders restaurant id.
-       *
-       * @param {can.Deferred} old The previous value
-       * @returns {can.Deferred}
-       */
       get(old) {
         let _id = this.attr('slug');
         if(!old && _id) {
@@ -66,6 +68,8 @@ export const ViewModel = Map.extend({
   },
 
   /**
+   * @function toggle
+   *
    * Adds or removed an item from the order.
    *
    * @param {Object} item The menu item to use
@@ -82,9 +86,11 @@ export const ViewModel = Map.extend({
   },
 
   /**
+   * @function placeOrder
+   * 
    * Save the current order and update the status Deferred.
    *
-   * @returns {boolean} false to prevent the form submission
+   * @return {boolean} false to prevent the form submission
    */
   placeOrder() {
     let order = this.attr('order');

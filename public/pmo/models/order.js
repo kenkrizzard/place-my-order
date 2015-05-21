@@ -5,14 +5,36 @@ import tag from 'can-connect/tag';
 import set from 'can-set';
 import socket from './socket';
 
+/**
+ * @parent models
+ * @module pmo/models/order Order
+ *
+ * Model to retrieve and create orders for a restaurant.
+ */
 var Order = can.Map.extend({
+  /** @prototype */
   define: {
+    /**
+     * @property {String} status
+     *
+     * The status of the order. Usually one of `new`, `preparing`, `delivering` or `delivered`
+     */
     status: {
       value: 'new'
     },
+    /**
+     * @property {can.List} items
+     *
+     * The list of order items
+     */
     items: {
       Value: can.List
     },
+    /**
+     * @property total
+     *
+     * The total of the order. Will be calculated dynamically.
+     */
     total: {
       get() {
         let total = 0.0;
@@ -22,6 +44,13 @@ var Order = can.Map.extend({
     }
   },
 
+  /**
+   * @function markAs
+   *
+   * Update the order status and save it to the server.
+   *
+   * @param {String} status The new status to set
+   */
   markAs(status) {
     this.attr('status', status);
     this.save();

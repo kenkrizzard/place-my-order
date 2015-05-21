@@ -1,8 +1,10 @@
-# placemyorder.com
-
-[ ![Codeship Status for bitovi/place-my-order](https://codeship.com/projects/25f512b0-dbde-0132-3a71-428a02316898/status?branch=master)](https://codeship.com/projects/79797)
+<!--
+@page index place-my-order.com
+-->
 
 A restaurant menu ordering application. Built in ES6 with CanJS + StealJS.
+
+[ ![Codeship Status for bitovi/place-my-order](https://codeship.com/projects/25f512b0-dbde-0132-3a71-428a02316898/status?branch=master)](https://codeship.com/projects/79797)
 
 ## Installation
 
@@ -36,7 +38,7 @@ For Steals live reload:
 
 > cd public/ && npm run live-reload
 
-### Production
+## Production
 
 To use production first build:
 

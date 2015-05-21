@@ -38,6 +38,7 @@
     "done-server-side-render": "^0.0.11"
   },
   "devDependencies": {
+    "documentjs": "^0.3.0-pre.2",
     "steal-tools": "git://github.com/stealjs/steal-tools#5ca1ccf4e0fc65d075ea8e47533f2673f4555590",
     "supervisor": "^0.6.0",
     "testee": "^0.2.0"
